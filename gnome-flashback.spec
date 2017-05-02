@@ -4,7 +4,7 @@
 #
 Name     : gnome-flashback
 Version  : 3.24.0
-Release  : 2
+Release  : 3
 URL      : http://ftp.acc.umu.se/pub/gnome/sources/gnome-flashback/3.24/gnome-flashback-3.24.0.tar.xz
 Source0  : http://ftp.acc.umu.se/pub/gnome/sources/gnome-flashback/3.24/gnome-flashback-3.24.0.tar.xz
 Summary  : No detailed summary available
