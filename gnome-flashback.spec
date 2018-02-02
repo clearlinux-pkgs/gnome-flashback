@@ -4,7 +4,7 @@
 #
 Name     : gnome-flashback
 Version  : 3.26.0
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/gnome-flashback/3.26/gnome-flashback-3.26.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-flashback/3.26/gnome-flashback-3.26.0.tar.xz
 Summary  : No detailed summary available
