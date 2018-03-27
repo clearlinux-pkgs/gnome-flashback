@@ -1,5 +1,5 @@
 PKG_NAME := gnome-flashback
-URL := https://download.gnome.org/sources/gnome-flashback/3.26/gnome-flashback-3.26.0.tar.xz
-
+URL = https://download.gnome.org/sources/gnome-flashback/3.28/gnome-flashback-3.28.0.tar.xz
+ARCHIVES = 
 
 include ../common/Makefile.common
