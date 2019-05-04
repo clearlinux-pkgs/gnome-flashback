@@ -4,16 +4,17 @@
 #
 Name     : gnome-flashback
 Version  : 3.30.0
-Release  : 10
+Release  : 11
 URL      : https://download.gnome.org/sources/gnome-flashback/3.30/gnome-flashback-3.30.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-flashback/3.30/gnome-flashback-3.30.0.tar.xz
-Summary  : No detailed summary available
+Summary  : GNOME Flashback session
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: gnome-flashback-bin
-Requires: gnome-flashback-data
-Requires: gnome-flashback-license
-Requires: gnome-flashback-locales
+Requires: gnome-flashback-bin = %{version}-%{release}
+Requires: gnome-flashback-data = %{version}-%{release}
+Requires: gnome-flashback-libexec = %{version}-%{release}
+Requires: gnome-flashback-license = %{version}-%{release}
+Requires: gnome-flashback-locales = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : gettext
 BuildRequires : perl(XML::Parser)
@@ -50,8 +51,9 @@ BuildRequires : pkgconfig(xrandr)
 %package bin
 Summary: bin components for the gnome-flashback package.
 Group: Binaries
-Requires: gnome-flashback-data
-Requires: gnome-flashback-license
+Requires: gnome-flashback-data = %{version}-%{release}
+Requires: gnome-flashback-libexec = %{version}-%{release}
+Requires: gnome-flashback-license = %{version}-%{release}
 
 %description bin
 bin components for the gnome-flashback package.
@@ -63,6 +65,15 @@ Group: Data
 
 %description data
 data components for the gnome-flashback package.
+
+
+%package libexec
+Summary: libexec components for the gnome-flashback package.
+Group: Default
+Requires: gnome-flashback-license = %{version}-%{release}
+
+%description libexec
+libexec components for the gnome-flashback package.
 
 
 %package license
@@ -89,7 +100,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536517646
+export SOURCE_DATE_EPOCH=1556987583
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -101,10 +119,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1536517646
+export SOURCE_DATE_EPOCH=1556987583
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/gnome-flashback
-cp COPYING %{buildroot}/usr/share/doc/gnome-flashback/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/gnome-flashback
+cp COPYING %{buildroot}/usr/share/package-licenses/gnome-flashback/COPYING
 %make_install
 %find_lang gnome-flashback
 ## install_append content
@@ -117,8 +135,6 @@ mv %{buildroot}/etc/xdg %{buildroot}/usr/share/. && rmdir %{buildroot}/etc
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/gnome-flashback
-/usr/libexec/gnome-flashback-compiz
-/usr/libexec/gnome-flashback-metacity
 
 %files data
 %defattr(-,root,root,-)
@@ -139,9 +155,14 @@ mv %{buildroot}/etc/xdg %{buildroot}/usr/share/. && rmdir %{buildroot}/etc
 /usr/share/xsessions/gnome-flashback-compiz.desktop
 /usr/share/xsessions/gnome-flashback-metacity.desktop
 
-%files license
+%files libexec
 %defattr(-,root,root,-)
-/usr/share/doc/gnome-flashback/COPYING
+/usr/libexec/gnome-flashback-compiz
+/usr/libexec/gnome-flashback-metacity
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/gnome-flashback/COPYING
 
 %files locales -f gnome-flashback.lang
 %defattr(-,root,root,-)

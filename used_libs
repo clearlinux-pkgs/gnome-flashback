@@ -1,9 +1,4 @@
-libX11-xcb.so.1
 libX11.so.6
-libXext.so.6
-libXfixes.so.3
-libXi.so.6
-libXrandr.so.2
 libatk-1.0.so.0
 libc.so.6
 libcairo-gobject.so.2
@@ -28,6 +23,4 @@ libpthread.so.0
 libpulse-mainloop-glib.so.0
 libpulse.so.0
 libupower-glib.so.3
-libxcb-randr.so.0
-libxcb.so.1
 libxkbfile.so.1
