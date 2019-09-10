@@ -4,10 +4,10 @@
 #
 Name     : gnome-flashback
 Version  : 3.34.0
-Release  : 15
+Release  : 16
 URL      : https://download.gnome.org/sources/gnome-flashback/3.34/gnome-flashback-3.34.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-flashback/3.34/gnome-flashback-3.34.0.tar.xz
-Summary  : No detailed summary available
+Summary  : GNOME Flashback session
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: gnome-flashback-bin = %{version}-%{release}
@@ -112,7 +112,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568125754
+export SOURCE_DATE_EPOCH=1568126567
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -132,7 +133,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1568125754
+export SOURCE_DATE_EPOCH=1568126567
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-flashback
 cp COPYING %{buildroot}/usr/share/package-licenses/gnome-flashback/COPYING
