@@ -1,16 +1,24 @@
-Version 3.36.4
+Version 3.38.0
+==============
+- Configure systemd session using a drop-in.
+- Get session path from logind manager. (#67)
+- Updated translations.
+
+Version 3.37.3
 ==============
 - Update lock screen window on monitor changes. (LP:#1891855)
 - Don't lock screen on suspend if automatic screen lock
   is disabled. (LP:#1891681)
 - Updated translations. (LP:#1882531)
 
-Version 3.36.3
+Version 3.37.2
 ==============
 - Fix enum type generation. (#52)
 
-Version 3.36.2
+Version 3.37.1
 ==============
+- Add a possibility to permanently delete files from desktop. (#28)
+  (Desktop now requires nautilus 3.37.1.1+!)
 - Fix screensaver unlock problems. (#46)
 - Fix few small memory leaks.
 - Fix screenshot saving to clipboard. (#50)
